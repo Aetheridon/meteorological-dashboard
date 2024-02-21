@@ -4,8 +4,10 @@ import json
 
 from datetime import date
 
+from values import Values
+
 CURRENT_DATE = date.today().strftime("%Y-%m-%d")
-LOG_PATH = "template.json"
+LOG_PATH = Values().log_file_path
 
 def get_data_from_sensors():
     return { # Hard fixed temp data for testing.
