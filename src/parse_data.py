@@ -21,17 +21,12 @@ def parse_data(data_to_plot):
     measurements = ["air_temp", "air_pressure", "humidity"]
     titles = ["Air Temperature (°C)", "Air Pressure (hPa)", "Humidity (%)"]
 
-    air_temp_measurements = []
-    air_pressure_measurements = []
-    humidity_measurements = []
+    air_temp_measurements = [data_to_plot[date]["air_temp"] for date in dates]
+    air_pressure_measurements = [data_to_plot[date]["air_pressure"] for date in dates]
+    humidity_measurements = [data_to_plot[date]["humidity"] for date in dates]
 
     measurement_values = [air_temp_measurements, air_pressure_measurements, humidity_measurements]
-
-    for date in dates:
-        air_temp_measurements.append(data_to_plot[date]["air_temp"])
-        air_pressure_measurements.append(data_to_plot[date]["air_pressure"])
-        humidity_measurements.append(data_to_plot[date]["humidity"])
-
+    
     for index, title in enumerate(titles):
         plot_data(dates=dates, title=title, measurement=measurement_values[index], filename=measurements[index])
     
