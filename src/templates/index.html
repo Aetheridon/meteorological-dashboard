@@ -1,0 +1,9 @@
+<h1>Meteorological Dashboard...</h1>
+
+<form method="post">
+    <input type="submit" value="Fetch" >
+</form>
+
+{% for image in images %}
+    <img src="{{url_for('static', filename = image) }}">
+{% endfor %}

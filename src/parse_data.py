@@ -1,6 +1,7 @@
 import json
 
 from values import Values
+from load_data import write_to_log
 
 import matplotlib.pyplot as plt
 
@@ -13,10 +14,13 @@ def plot_data(dates, title, measurement, filename):
     ax.set_title(title)
     ax.plot(dates, measurement, color="green")
 
-    fig.savefig(f"{filename}.png")
+    fig.savefig(f"static/pics/{filename}.png")
     plt.show()
 
-def parse_data(data_to_plot):
+def parse_data():
+    write_to_log()
+    data_to_plot = get_logs()
+
     dates = list(data_to_plot.keys())
     measurements = ["air_temp", "air_pressure", "humidity"]
     titles = ["Air Temperature (°C)", "Air Pressure (hPa)", "Humidity (%)"]
@@ -29,6 +33,4 @@ def parse_data(data_to_plot):
     
     for index, title in enumerate(titles):
         plot_data(dates=dates, title=title, measurement=measurement_values[index], filename=measurements[index])
-    
-data_to_plot = get_logs()
-parse_data(data_to_plot=data_to_plot)
+

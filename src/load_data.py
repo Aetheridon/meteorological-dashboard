@@ -28,5 +28,3 @@ def write_to_log():
 
     with open(LOG_PATH, "w+") as data_file:
         json.dump(current_data, data_file, indent=4)
-
-write_to_log()
