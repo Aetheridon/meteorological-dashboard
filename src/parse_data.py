@@ -10,12 +10,14 @@ def get_logs():
         return json.load(data_file)
 
 def plot_data(dates, title, measurement, filename):
+    plt.style.use("seaborn-v0_8")
     fig, ax = plt.subplots()
     ax.set_title(title)
-    ax.plot(dates, measurement, color="green")
+    ax.plot(dates, measurement, color="c")
 
     fig.savefig(f"static/pics/{filename}.png")
     plt.show()
+
 
 def parse_data():
     write_to_log()
