@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<h1>Meteorological Dashboard</h1>
+
+<style>
+    
+    h1 {
+        text-align: center;
+        color: white;
+        font-size: 100px;
+    }
+
+    body {
+        background-color: #1e1e1e;
+        text-align: center;
+    }
+
+    input[type=submit] {
+        background-color: #1e1e1e;
+        border: none;
+        color: white;
+        padding: 30px 60px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-size: 50px;
+    }
+
+</style>
+
+<body></body>
+
+<form method="post">
+    <input type="submit" value="Fetch" >
+</form>
+
+{% for image in images %}
+    <img src="{{url_for('static', filename = image) }}">
+{% endfor %}
